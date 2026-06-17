@@ -71,20 +71,17 @@ int main(void)
 
 	BSP_UART_init(UART2_ID,115200);
 	BSP_UART_init(UART1_ID, 9600);
+	// on redirige le printf vers l'UART1
+	BSP_SYS_set_std_usart(UART1_ID, UART1_ID, UART1_ID);
 
-	/* Indique que les printf sont dirigés vers l'UART2 */
-	BSP_SYS_set_std_usart(UART2_ID, UART2_ID, UART2_ID);
 
 	/* Initialisation du port de la led Verte (carte Nucleo) */
 	BSP_GPIO_pin_config(LED_GREEN_GPIO, LED_GREEN_PIN, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH,GPIO_NO_AF);
 
 	/* Hello student */
-	//printf("Hi <Student>, can you read me?\n");
 
-	//heartbeat();
-	//test_Ultrason_run();
+	heartbeat();
 	Drone_Init();
-
 
 
 	/* Tâche de fond, boucle infinie, Infinite loop,... quelque soit son nom vous n'en sortirez jamais */
@@ -93,8 +90,8 @@ int main(void)
 
 		if( char_received(UART2_ID) )
 		{
-			write_LED(true);		/* write_LED? Faites un ctrl+clic dessus pour voir... */
-			HAL_Delay(BLINK_DELAY);	/* ... ça fonctionne aussi avec les macros, les variables. C'est votre nouveau meilleur ami */
+			write_LED(true);
+			HAL_Delay(BLINK_DELAY);
 			write_LED(false);
 		}
 

@@ -18,7 +18,7 @@ const Motor_t MY_MOTORS[4] = {
 void Motors_Init(void) {
 
 
-    // 1. Configurer les TIMERs pour une période de 50 us (sans interruption)
+    // 1. Configuration  des TIMERs pour une période de 50 us (sans interruption)
 	BSP_TIMER_run_us(TIMER1_ID, 50, 0); //  Moteur 2
 	BSP_TIMER_run_us(TIMER2_ID, 50, 0); //  Moteur 3 et 2
 	BSP_TIMER_run_us(TIMER3_ID, 50, 0); // Moteur 0 et 3

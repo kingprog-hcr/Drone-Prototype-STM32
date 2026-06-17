@@ -10,7 +10,7 @@
 
 /**
  * @brief Lance le test unitaire de l'ultrason.
- * /!\ Cette fonction est bloquante.
+ * / Cette fonction est bloquante.
  */
 void test_Ultrason_run(void);
 

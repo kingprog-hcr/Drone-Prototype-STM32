@@ -39,17 +39,17 @@ void test_Ultrason_run(void)
     /* Boucle de test */
     while (1)
     {
-        // 1. Appel OBLIGATOIRE en tâche de fond pour faire tourner la machine à états de Nirgal
+
         BSP_HCSR04_process_main();
 
-        // 2. Déclencher une mesure toutes les 60 ms (période standard pour un HC-SR04)
+        // Déclencher une mesure toutes les 60 ms (période standard pour un HC-SR04)
         if (HAL_GetTick() - t_last_measure >= 60)
         {
             BSP_HCSR04_run_measure(id_ultrason);
             t_last_measure = HAL_GetTick();
         }
 
-        // 3. Récupérer et afficher la valeur dès qu'elle est prête
+        // 1. Récupérer et afficher la valeur dès qu'elle est prête
         switch (BSP_HCSR04_get_value(id_ultrason, &distance_mm))
         {
             case HAL_OK:

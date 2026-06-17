@@ -34,7 +34,7 @@
 #define BUZZER_PORT   GPIOA
 #define BUZZER_PIN    GPIO_PIN_5
 
-/////////
+
 
 #define UART2_ON_PA3_PA2
 #define UART1_ON_PA10_PA9
